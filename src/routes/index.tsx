@@ -1,23 +1,40 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { AuraApp } from "@/components/aura/AuraApp";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "AuraBot AI · Booking concierge for Glow Beauty Lounge" },
+      {
+        name: "description",
+        content:
+          "A prototype WhatsApp and Instagram booking assistant for a boutique salon: no overlaps, waitlist refills, deposits and staff escalations.",
+      },
+      { property: "og:title", content: "AuraBot AI · Your glow, always on time" },
+      {
+        property: "og:description",
+        content: "Prototype salon booking concierge with a client chat and a live staff dashboard. Example data only.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Loading() {
+  return (
+    <div className="grid min-h-dvh place-items-center bg-background">
+      <p className="font-display text-3xl text-muted-foreground">AuraBot AI is getting ready…</p>
+    </div>
+  );
+}
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ClientOnly fallback={<Loading />}>
+      <AuraApp />
+    </ClientOnly>
   );
 }

@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- AuraBot demo logic lives in pure functions in `src/lib/aura/engine.ts` (state in, new state + bot replies out); UI only calls them through `src/lib/aura/store.tsx`. Why: keeps the booking/waitlist rules testable in `src/test/aura-engine.test.ts`.
+- All demo state is in-memory in the browser with no backend or persistence, and the app renders client-only. Why: the brief requires a refresh to reset the demo and dates come from the visitor's clock.
