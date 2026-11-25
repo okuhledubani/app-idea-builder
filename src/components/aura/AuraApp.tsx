@@ -6,6 +6,7 @@ import { SALON, SLOGAN } from "@/lib/aura/data";
 import { AuraProvider, useAura } from "@/lib/aura/store";
 import { cn } from "@/lib/utils";
 
+import { AccountButton } from "./AccountButton";
 import { ChatPanel } from "./ChatPanel";
 import { Dashboard } from "./Dashboard";
 
@@ -76,6 +77,7 @@ function Shell() {
             >
               <RotateCcw className="size-4" aria-hidden /> Reset demo
             </button>
+            <AccountButton />
             <ThemeToggle />
           </div>
         </div>
