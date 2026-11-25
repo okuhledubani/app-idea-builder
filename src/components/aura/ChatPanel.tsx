@@ -1,4 +1,4 @@
-import { Bot, Send, ShieldCheck, UserRound } from "lucide-react";
+import { ArrowLeft, Bot, CheckCheck, EllipsisVertical, Phone, Send, ShieldCheck, UserRound, Video } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import { useAura } from "@/lib/aura/store";
@@ -62,6 +62,7 @@ function Bubble({ m, children }: { m: ChatMessage; children?: React.ReactNode })
             {m.card && <div className={cn(hasBody && "mt-2")}><ChatCardView card={m.card} /></div>}
             <p className={cn("mt-1 text-right text-[11px] text-muted-foreground", isClient && "text-bubble-client-foreground/70")}>
               {fmtStamp(m.time)}
+              {isClient && <CheckCheck className="ml-1 inline size-3.5 text-sky-500" aria-label="Read" />}
             </p>
           </div>
         )}
@@ -97,13 +98,19 @@ export function ChatPanel() {
 
   return (
     <section aria-label="Client chat" className="flex h-full min-h-0 flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-panel">
-      <header className="flex items-center gap-3 bg-chat-header px-4 py-3 text-chat-header-foreground">
+      <header className="flex items-center gap-3 bg-chat-header px-3 py-2.5 text-chat-header-foreground">
+        <ArrowLeft className="size-5 shrink-0" aria-hidden />
         <div className="grid size-10 shrink-0 place-items-center rounded-full bg-brand-gradient text-rose-foreground">
           <Bot className="size-5" aria-hidden />
         </div>
         <div className="min-w-0">
-          <p className="truncate font-display text-xl font-semibold leading-tight">AuraBot · Glow Beauty Lounge</p>
-          <p className="truncate text-xs opacity-80">{typing ? "typing…" : "WhatsApp & Instagram DM · simulated"}</p>
+          <p className="truncate text-base font-semibold leading-tight">Glow Beauty Lounge</p>
+          <p className="truncate text-xs opacity-80">{typing ? "typing…" : "online · mock WhatsApp chat"}</p>
+        </div>
+        <div className="ml-auto flex shrink-0 items-center gap-4" aria-hidden>
+          <Video className="size-5" />
+          <Phone className="size-5" />
+          <EllipsisVertical className="size-5" />
         </div>
       </header>
 

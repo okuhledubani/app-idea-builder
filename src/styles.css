@@ -108,12 +108,12 @@
   --success: oklch(0.5 0.09 155);
   --success-soft: oklch(0.92 0.04 155);
 
-  --chat-wall: oklch(0.94 0.018 60);
-  --chat-header: oklch(0.251 0.042 321.1);
-  --chat-header-foreground: oklch(0.962 0.012 67.7);
-  --bubble-bot: oklch(0.99 0.005 67.7);
-  --bubble-client: oklch(0.86 0.06 40);
-  --bubble-client-foreground: oklch(0.251 0.042 321.1);
+  --chat-wall: oklch(0.93 0.02 80);
+  --chat-header: oklch(0.47 0.08 175);
+  --chat-header-foreground: oklch(0.99 0 0);
+  --bubble-bot: oklch(1 0 0);
+  --bubble-client: oklch(0.93 0.08 135);
+  --bubble-client-foreground: oklch(0.2 0.01 150);
   --bubble-manager: oklch(0.93 0.04 75);
 
   --slot-example: oklch(0.88 0.02 320);
@@ -160,11 +160,11 @@
   --success: oklch(0.78 0.1 155);
   --success-soft: oklch(0.32 0.05 155);
 
-  --chat-wall: oklch(0.17 0.028 321);
-  --chat-header: oklch(0.28 0.045 325);
+  --chat-wall: oklch(0.2 0.015 220);
+  --chat-header: oklch(0.27 0.02 220);
   --chat-header-foreground: oklch(0.945 0.014 67.7);
-  --bubble-bot: oklch(0.27 0.04 321);
-  --bubble-client: oklch(0.42 0.07 35);
+  --bubble-bot: oklch(0.3 0.02 220);
+  --bubble-client: oklch(0.42 0.08 170);
   --bubble-client-foreground: oklch(0.96 0.012 67.7);
   --bubble-manager: oklch(0.36 0.05 70);
 
