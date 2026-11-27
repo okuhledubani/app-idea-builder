@@ -1,4 +1,4 @@
-import { ChevronDown, Info, MessageCircle, Moon, RotateCcw, Sun, LayoutDashboard } from "lucide-react";
+import { ChevronDown, Info, MessageCircle, Moon, Sun, LayoutDashboard } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -39,7 +39,7 @@ function ThemeToggle() {
 }
 
 function Shell() {
-  const { reset, state, resetCount } = useAura();
+  const { state, resetCount } = useAura();
   const [view, setView] = useState<"chat" | "dashboard">("chat");
   const [seen, setSeen] = useState(state.messages.length);
   const [scriptOpen, setScriptOpen] = useState(false);
@@ -67,16 +67,6 @@ function Shell() {
             </p>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                reset();
-                setView("chat");
-              }}
-              className="flex min-h-11 items-center gap-2 rounded-full bg-rose px-4 text-sm font-semibold text-rose-foreground hover:opacity-90"
-            >
-              <RotateCcw className="size-4" aria-hidden /> Reset demo
-            </button>
             <AccountButton />
             <ThemeToggle />
           </div>
